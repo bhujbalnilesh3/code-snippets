@@ -1,0 +1,13 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.white-icon {
+    color: #ffffff !important;
+}
+
+.icon-btn {
+    background: #673ab7;
+    border: none;
+    cursor: pointer;
+}
