@@ -1,0 +1,26 @@
+{
+  "name": "code-snippets",
+  "version": "1.0.0",
+  "description": "Useful code snippets for Node js, Mongo DB, MySQL, Python, Shell script etc",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhujbalnilesh3/code-snippets.git"
+  },
+  "author": "nilesh.bhujbal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhujbalnilesh3/code-snippets/issues"
+  },
+  "homepage": "https://github.com/bhujbalnilesh3/code-snippets#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "moment-timezone": "^0.5.33",
+    "mongoose": "^6.0.2"
+  }
+}
