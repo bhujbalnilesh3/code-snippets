@@ -1,15 +1,33 @@
 <p>
   <mat-toolbar color="primary">
-    <button mat-icon-button class="icon-btn" aria-label="Example icon-button with menu icon">
+    <button matRipple [matRippleCentered]="centered" [matRippleUnbounded]="unbounded" (click)="drawer.toggle()" mat-icon-button class="icon-btn" aria-label="Example icon-button with menu icon">
       <mat-icon class="white-icon">menu</mat-icon>
     </button>
-    <span>Coading Cheatsheet</span>
+    <span class="site-name"><strong>Coding Cheatsheet</strong> </span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="icon-btn" aria-label="Example icon-button with heart icon">
+    <button matRipple [matRippleCentered]="centered" [matRippleUnbounded]="unbounded" mat-icon-button class="icon-btn" aria-label="Example icon-button with heart icon">
       <mat-icon class="white-icon">favorite</mat-icon>
     </button>
-    <button mat-icon-button class="icon-btn" aria-label="Example icon-button with share icon">
+    <button matRipple [matRippleCentered]="centered" [matRippleUnbounded]="unbounded" mat-icon-button class="icon-btn" aria-label="Example icon-button with share icon">
       <mat-icon class="white-icon">share</mat-icon>
     </button>
   </mat-toolbar>
 </p>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-selection-list #techs [multiple]="false">
+      <div mat-subheader>Select Technology</div>
+      <mat-list-option matRipple [matRippleCentered]="centered" *ngFor="let tech of technologies" [value]="tech">{{tech}}</mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+  <div class="content-area">
+    Option selected: {{techs.selectedOptions.selected[0]?.value}}
+  </div>
+</mat-drawer-container>
+
+<footer>
+  <mat-toolbar color="primary">
+    <div class="copyright">&copy;2020-2021 Nilesh Bhujbal | All Rights Reserved</div>
+  </mat-toolbar>
+</footer>

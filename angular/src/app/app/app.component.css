@@ -11,3 +11,45 @@
     border: none;
     cursor: pointer;
 }
+
+.example-container {
+    width: 100%;
+    height: 100%;
+}
+
+.content-area, .site-name, 
+:host::ng-deep .mat-list-text, 
+:host::ng-deep .mat-subheader, .copyright {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.site-name { font-size: 20px; }
+
+:host::ng-deep .mat-subheader { 
+    font-weight: bold;
+    font-weight: 600;
+}
+  
+.example-sidenav-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-drawer {
+    width: 240px;
+}
+
+.content-area {
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    background: #ffffff;
+}
+
+.copyright {
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+}

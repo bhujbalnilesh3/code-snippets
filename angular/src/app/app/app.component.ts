@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular';
+  centered  = true;
+  unbounded = true;
+  technologies: string[] = [
+    'Node', 
+    'Python', 
+    'AWS', 
+    'Angular', 
+    'MySQL', 
+    'Mongo DB',
+    'Shell Scripting',
+    'Git' 
+  ];
 }
