@@ -1,0 +1,27 @@
+.example-card {
+    max-width: 400px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.example-card p {
+    margin-bottom: 0px;
+}
+
+:host::ng-deep .mat-card-header-text {
+    margin: 0px;
+}
+
+:host::ng-deep .mat-card-title {
+    font-weight: bold;
+}
+
+:host::ng-deep .mat-card-content {
+    line-height: 20px;
+}
+
+:host::ng-deep .mat-card-actions button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 5px;
+}

@@ -1,0 +1,49 @@
+<p>
+  <mat-toolbar color="primary">
+    <button matRipple [matRippleCentered]="centered" [matRippleUnbounded]="unbounded" (click)="drawer.toggle()" mat-icon-button class="icon-btn" aria-label="Example icon-button with menu icon">
+      <mat-icon class="white-icon">menu</mat-icon>
+    </button>
+    <span class="site-name"><strong>Coding Cheatsheet</strong> </span>
+    <span class="example-spacer"></span>
+    <button matRipple [matRippleCentered]="centered" [matRippleUnbounded]="unbounded" mat-icon-button class="icon-btn" aria-label="Example icon-button with heart icon">
+      <mat-icon class="white-icon">favorite</mat-icon>
+    </button>
+    <button matRipple [matRippleCentered]="centered" [matRippleUnbounded]="unbounded" mat-icon-button class="icon-btn" aria-label="Example icon-button with share icon">
+      <mat-icon class="white-icon">share</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-selection-list #techs [multiple]="false">
+      <div mat-subheader>Select Technology</div>
+      <mat-list-option 
+        matRipple [matRippleCentered]="centered" 
+        *ngFor="let tech of technologies" 
+        [value]="tech"
+        routerLink="/cheat-home"
+      >
+        {{tech}}
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-drawer>
+  <div class="content-area">
+    <h1>{{techs.selectedOptions.selected[0]?.value}} Cheatsheet</h1>
+    <div class="intro" *ngIf="! techs.selectedOptions.selected[0]?.value">
+      <p>Programming is not easy, especially if you’re not good at memorizing common syntax. Depending on the language you are working with, you must remember your fair share of syntax, commands, and functions. Even if you work with code every day, it’s information that’s easy to forget.</p>
+
+      <p>Don’t fret! That’s exactly what cheat sheets are for.</p>
+
+      <p>They contain a collection of notes, facts, and commands you can reference at any given time. Think of them as a study card, but for programming.</p>
+
+      <p>The cheat sheets we provide contain common syntaxes and data properties for a particular coding language. They’re handy when you find yourself stuck and need help getting past an error.</p>
+    
+      <p><strong>Check them out!</strong></p>
+    </div>
+    <div *ngIf="techs.selectedOptions.selected[0]?.value">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>
+<app-footer></app-footer>

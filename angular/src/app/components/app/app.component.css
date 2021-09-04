@@ -43,13 +43,12 @@
 }
 
 .content-area {
-    font-family: 'Montserrat', sans-serif;
-    padding: 10px;
-    background: #ffffff;
+    padding: 20px;
+    line-height: 30px;
 }
 
-.copyright {
-    font-size: 15px;
-    text-align: center;
-    width: 100%;
+.content-area h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
 }
