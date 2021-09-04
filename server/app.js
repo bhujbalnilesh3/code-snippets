@@ -10,6 +10,12 @@ let app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.get('/healthcheck', (request, response) => {
 	response.json({
 		status: 200,
@@ -46,7 +52,10 @@ app.post('/api/categories', (request, response) => {
 app.put('/api/categories/id/:id', (request, response) => {
     let body = request.body;
     let id = request.params.id;
-    Category.updateOne({ _id: id }, { name: body.name}).then(data => {
+    Category.updateOne({ _id: id }, { 
+        name: body.name,
+        description: body.description
+    }).then(data => {
         response.status(200).json({ 
             status: 200,
             modifiedCount: data.modifiedCount 
