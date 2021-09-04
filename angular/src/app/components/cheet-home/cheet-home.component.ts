@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedataService } from 'src/app/services/sharedata.service';
 
 @Component({
   selector: 'cheet-home',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cheet-home.component.css']
 })
 export class CheetHomeComponent implements OnInit {
-
-  constructor() { }
+  category: any = '';
+  constructor(private data: SharedataService) { }
 
   ngOnInit(): void {
+    this.data.categoryData.subscribe(data => {
+      this.category  = data;
+    });
   }
-
 }

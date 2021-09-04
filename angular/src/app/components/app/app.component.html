@@ -16,21 +16,22 @@
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <mat-selection-list #techs [multiple]="false">
+    <mat-selection-list [multiple]="false">
       <div mat-subheader>Select Technology</div>
       <mat-list-option 
         matRipple [matRippleCentered]="centered" 
-        *ngFor="let tech of technologies" 
-        [value]="tech"
+        *ngFor="let cat of categories" 
+        [value]="cat.name"
         routerLink="/cheat-home"
+        (click)="getSelectedCat(cat)"
       >
-        {{tech}}
+        {{cat.name}}
       </mat-list-option>
     </mat-selection-list>
   </mat-drawer>
   <div class="content-area">
-    <h1>{{techs.selectedOptions.selected[0]?.value}} Cheatsheet</h1>
-    <div class="intro" *ngIf="! techs.selectedOptions.selected[0]?.value">
+    <h1>{{selectedCategory.name}} Cheatsheet</h1>
+    <div class="intro" *ngIf="! selectedCategory.name">
       <p>Programming is not easy, especially if you’re not good at memorizing common syntax. Depending on the language you are working with, you must remember your fair share of syntax, commands, and functions. Even if you work with code every day, it’s information that’s easy to forget.</p>
 
       <p>Don’t fret! That’s exactly what cheat sheets are for.</p>
@@ -41,7 +42,7 @@
     
       <p><strong>Check them out!</strong></p>
     </div>
-    <div *ngIf="techs.selectedOptions.selected[0]?.value">
+    <div *ngIf="selectedCategory.name">
       <router-outlet></router-outlet>
     </div>
   </div>

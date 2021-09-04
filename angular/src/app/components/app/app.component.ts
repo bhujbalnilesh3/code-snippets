@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
+import { SharedataService } from 'src/app/services/sharedata.service';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,20 @@ import { CategoryService } from '../../services/category.service';
 export class AppComponent {
   centered  = true;
   unbounded = true;
-  technologies:any = [];
   
-  constructor(private category: CategoryService) {}
+  categories: any = [];
+  selectedCategory: any = {};
+
+  getSelectedCat(cat:any) {
+    this.selectedCategory = cat;
+    this.data.changeCategoryData(this.selectedCategory);
+  }
+
+  constructor(private category: CategoryService, private data: SharedataService) {}
 
   ngOnInit() {
     this.category.getCategories().subscribe((data:any) => {
-      this.technologies = data.map((d:any) => d.name);
+      this.categories = data;
     })
   }
 }
